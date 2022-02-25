@@ -1,0 +1,480 @@
+{% extends "base.html" %} {% block content %}
+
+
+<main class="page-wrapper">
+    <!-- Quick View Modal-->
+    <div class="modal-quick-view modal fade" id="quick-view" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title product-title"><a href="shop-single-v1.html" data-bs-toggle="tooltip" data-bs-placement="right" title="Go to product page">Sports Hooded Sweatshirt<i class="ci-arrow-right fs-lg ms-2"></i></a></h4>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Product gallery-->
+                        <div class="col-lg-7 pe-lg-0">
+                            <div class="product-gallery">
+                                <div class="product-gallery-preview order-sm-2">
+                                    <div class="product-gallery-preview-item active" id="first"><img class="image-zoom" src="https://cartzilla.createx.studio/img/shop/single/gallery/01.jpg" data-zoom="img/shop/single/gallery/01.jpg" alt="Product image">
+                                        <div class="image-zoom-pane"></div>
+                                    </div>
+                                    <div class="product-gallery-preview-item" id="second"><img class="image-zoom" src="https://cartzilla.createx.studio/img/shop/single/gallery/02.jpg" data-zoom="img/shop/single/gallery/02.jpg" alt="Product image">
+                                        <div class="image-zoom-pane"></div>
+                                    </div>
+                                    <div class="product-gallery-preview-item" id="third"><img class="image-zoom" src="https://cartzilla.createx.studio/img/shop/single/gallery/03.jpg" data-zoom="img/shop/single/gallery/03.jpg" alt="Product image">
+                                        <div class="image-zoom-pane"></div>
+                                    </div>
+                                    <div class="product-gallery-preview-item" id="fourth"><img class="image-zoom" src="https://cartzilla.createx.studio/img/shop/single/gallery/04.jpg" data-zoom="img/shop/single/gallery/04.jpg" alt="Product image">
+                                        <div class="image-zoom-pane"></div>
+                                    </div>
+                                </div>
+                                <div class="product-gallery-thumblist order-sm-1">
+                                    <a class="product-gallery-thumblist-item active" href="#first"><img src="https://cartzilla.createx.studio/img/shop/single/gallery/th01.jpg" alt="Product thumb"></a>
+                                    <a class="product-gallery-thumblist-item" href="#second"><img src="https://cartzilla.createx.studio/img/shop/single/gallery/th02.jpg" alt="Product thumb"></a>
+                                    <a class="product-gallery-thumblist-item" href="#third"><img src="https://cartzilla.createx.studio/img/shop/single/gallery/th03.jpg" alt="Product thumb"></a>
+                                    <a class="product-gallery-thumblist-item" href="#fourth"><img src="https://cartzilla.createx.studio/img/shop/single/gallery/th04.jpg" alt="Product thumb"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product details-->
+                        <div class="col-lg-5 pt-4 pt-lg-0 image-zoom-pane">
+                            <div class="product-details ms-auto pb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <a href="shop-single-v1.html#reviews">
+                                        <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i>
+                                            <i class="star-rating-icon ci-star"></i>
+                                        </div><span class="d-inline-block fs-sm text-body align-middle mt-1 ms-1">74 Reviews</span></a>
+                                    <button class="btn-wishlist" type="button" data-bs-toggle="tooltip" title="Add to wishlist"><i class="ci-heart"></i></button>
+                                </div>
+                                <div class="mb-3"><span class="h3 fw-normal text-accent me-1">$18.<small>99</small></span>
+                                    <del class="text-muted fs-lg me-3">$25.<small>00</small></del><span class="badge bg-danger badge-shadow align-middle mt-n2">Sale</span>
+                                </div>
+                                <div class="fs-sm mb-4"><span class="text-heading fw-medium me-1">Color:</span><span class="text-muted" id="colorOptionText">Red/Dark blue/White</span></div>
+                                <div class="position-relative me-n4 mb-3">
+                                    <div class="form-check form-option form-check-inline mb-2">
+                                        <input class="form-check-input" type="radio" name="color" id="color1" data-bs-label="colorOptionText" value="Red/Dark blue/White" checked>
+                                        <label class="form-option-label rounded-circle" for="color1"><span class="form-option-color rounded-circle" style="background-image: url(img/shop/single/color-opt-1.png)"></span></label>
+                                    </div>
+                                    <div class="form-check form-option form-check-inline mb-2">
+                                        <input class="form-check-input" type="radio" name="color" id="color2" data-bs-label="colorOptionText" value="Beige/White/Black">
+                                        <label class="form-option-label rounded-circle" for="color2"><span class="form-option-color rounded-circle" style="background-image: url(img/shop/single/color-opt-2.png)"></span></label>
+                                    </div>
+                                    <div class="form-check form-option form-check-inline mb-2">
+                                        <input class="form-check-input" type="radio" name="color" id="color3" data-bs-label="colorOptionText" value="Dark grey/White/Mustard">
+                                        <label class="form-option-label rounded-circle" for="color3"><span class="form-option-color rounded-circle" style="background-image: url(img/shop/single/color-opt-3.png)"></span></label>
+                                    </div>
+                                    <div class="product-badge product-available mt-n1"><i class="ci-security-check"></i>Product available</div>
+                                </div>
+                                <form class="mb-grid-gutter">
+                                    <div class="mb-3">
+                                        <label class="fw-medium pb-1" for="product-size">Size:</label>
+                                        <select class="form-select" required id="product-size">
+                          <option value="">Select size</option>
+                          <option value="xs">XS</option>
+                          <option value="s">S</option>
+                          <option value="m">M</option>
+                          <option value="l">L</option>
+                          <option value="xl">XL</option>
+                        </select>
+                                    </div>
+                                    <div class="mb-3 d-flex align-items-center">
+                                        <select class="form-select me-3" style="width: 5rem;">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                                        <button class="btn btn-primary btn-shadow d-block w-100" type="submit"><i class="ci-cart fs-lg me-2"></i>Add to Cart</button>
+                                    </div>
+                                </form>
+                                <h5 class="h6 mb-3 pb-2 border-bottom"><i class="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Product info</h5>
+                                <h6 class="fs-sm mb-2">Style</h6>
+                                <ul class="fs-sm ps-4">
+                                    <li>Hooded top</li>
+                                </ul>
+                                <h6 class="fs-sm mb-2">Composition</h6>
+                                <ul class="fs-sm ps-4">
+                                    <li>Elastic rib: Cotton 95%, Elastane 5%</li>
+                                    <li>Lining: Cotton 100%</li>
+                                    <li>Cotton 80%, Polyester 20%</li>
+                                </ul>
+                                <h6 class="fs-sm mb-2">Art. No.</h6>
+                                <ul class="fs-sm ps-4 mb-0">
+                                    <li>183260098</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Title-->
+    <div class="page-title-overlap bg-dark pt-4">
+        <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+            <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+                        <li class="breadcrumb-item"><a class="text-nowrap" href="{% url 'home' %}"><i class="ci-home"></i>Home</a></li>
+                        <li class="breadcrumb-item text-nowrap"><a href="#">Store</a></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+                {% if 'search' in request.path %}
+                <h1 class="h3 text-light mb-0">Search Result</h1>
+                {% else %}
+                <h1 class="h3 text-light mb-0">Our Store</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="container pb-5 mb-2 mb-md-4">
+        <div class="row">
+            <!-- Sidebar-->
+            <aside class="col-lg-4">
+                <!-- Sidebar-->
+                <div class="offcanvas offcanvas-collapse bg-white w-100 rounded-3 shadow-lg py-1" id="shop-sidebar" style="max-width: 22rem;">
+                    <div class="offcanvas-header align-items-center shadow-sm">
+                        <h2 class="h5 mb-0">Filters</h2>
+                        <button class="btn-close ms-auto" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body py-grid-gutter px-lg-grid-gutter">
+                        <!-- Categories-->
+                        <div class="widget widget-categories mb-4 pb-4 border-bottom">
+                            <h3 class="widget-title">Categories</h3>
+                            <div class="accordion mt-n1" id="shop-categories">
+                                <h3 class="accordion-header"><a class="accordion-button collapsed" href="{% url 'store' %}">All Product</a></h3>
+
+                                {% for category in links %}
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header"><a class="accordion-button collapsed" href="{{ category.get_absolute_url }}">{{ category.category_name }}</a></h3>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+
+
+
+                            <div class="widget widget-links widget-filter">
+                                <div class="input-group input-group-sm mb-2">
+                                    <input class="widget-filter-search form-control rounded-end" type="text" placeholder="Search">
+                                    <i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+                                </div>
+                                <ul class="widget-list widget-filter-list pt-1" style="height: 12rem;" data-simplebar="init" data-simplebar-auto-hide="false">
+                                    <div class="simplebar-wrapper" style="margin: -4px -16px 0px 0px;">
+                                        <div class="simplebar-height-auto-observer-wrapper">
+                                            <div class="simplebar-height-auto-observer"></div>
+                                        </div>
+                                        <div class="simplebar-mask">
+                                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                                                    <div class="simplebar-content" style="padding: 4px 16px 0px 0px;">
+                                                        <li class="widget-list-item widget-filter-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span class="widget-filter-item-text">View all</span></a></li>
+                                                        <li class="widget-list-item widget-filter-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span class="widget-filter-item-text">Pumps &amp; High Heels</span></a></li>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="simplebar-placeholder" style="width: auto; height: 376px;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                        <div class="simplebar-scrollbar simplebar-visible" style="width: 0px; display: none;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                                        <div class="simplebar-scrollbar simplebar-visible" style="height: 98px; display: block; transform: translate3d(0px, 0px, 0px);"></div>
+                                    </div>
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- Price range-->
+                        <div class="widget mb-4 pb-4 border-bottom">
+                            <h3 class="widget-title">Price <small>(Chức năng đang phát triển)</small></h3>
+                            <div class="range-slider" data-start-min="250" data-start-max="680" data-min="0" data-max="1000" data-step="1">
+                                <div class="range-slider-ui"></div>
+                                <div class="d-flex pb-1">
+                                    <div class="w-50 pe-2 me-2">
+                                        <div class="input-group input-group-sm"><span class="input-group-text">$</span>
+                                            <input class="form-control range-slider-value-min" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="w-50 ps-2">
+                                        <div class="input-group input-group-sm"><span class="input-group-text">$</span>
+                                            <input class="form-control range-slider-value-max" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Filter by Size-->
+                        <div class="widget widget-filter mb-4 pb-4 border-bottom">
+                            <h3 class="widget-title">Size <small>(Chức năng đang phát triển)</small></h3>
+                            <div class="input-group input-group-sm mb-2">
+                                <input class="widget-filter-search form-control rounded-end pe-5" type="text" placeholder="Search"><i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+                            </div>
+                            <ul class="widget-list widget-filter-list list-unstyled pt-1" style="max-height: 11rem;" data-simplebar data-simplebar-auto-hide="false">
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-xs">
+                                        <label class="form-check-label widget-filter-item-text" for="size-xs">XS</label>
+                                    </div><span class="fs-xs text-muted">34</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-s">
+                                        <label class="form-check-label widget-filter-item-text" for="size-s">S</label>
+                                    </div><span class="fs-xs text-muted">57</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-m">
+                                        <label class="form-check-label widget-filter-item-text" for="size-m">M</label>
+                                    </div><span class="fs-xs text-muted">198</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-l">
+                                        <label class="form-check-label widget-filter-item-text" for="size-l">L</label>
+                                    </div><span class="fs-xs text-muted">72</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-xl">
+                                        <label class="form-check-label widget-filter-item-text" for="size-xl">XL</label>
+                                    </div><span class="fs-xs text-muted">46</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-39">
+                                        <label class="form-check-label widget-filter-item-text" for="size-39">39</label>
+                                    </div><span class="fs-xs text-muted">112</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-40">
+                                        <label class="form-check-label widget-filter-item-text" for="size-40">40</label>
+                                    </div><span class="fs-xs text-muted">85</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-41">
+                                        <label class="form-check-label widget-filter-item-text" for="size-40">41</label>
+                                    </div><span class="fs-xs text-muted">210</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-42">
+                                        <label class="form-check-label widget-filter-item-text" for="size-42">42</label>
+                                    </div><span class="fs-xs text-muted">57</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-43">
+                                        <label class="form-check-label widget-filter-item-text" for="size-43">43</label>
+                                    </div><span class="fs-xs text-muted">30</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-44">
+                                        <label class="form-check-label widget-filter-item-text" for="size-44">44</label>
+                                    </div><span class="fs-xs text-muted">61</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-45">
+                                        <label class="form-check-label widget-filter-item-text" for="size-45">45</label>
+                                    </div><span class="fs-xs text-muted">23</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-46">
+                                        <label class="form-check-label widget-filter-item-text" for="size-46">46</label>
+                                    </div><span class="fs-xs text-muted">19</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-47">
+                                        <label class="form-check-label widget-filter-item-text" for="size-47">47</label>
+                                    </div><span class="fs-xs text-muted">15</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-48">
+                                        <label class="form-check-label widget-filter-item-text" for="size-48">48</label>
+                                    </div><span class="fs-xs text-muted">12</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-49">
+                                        <label class="form-check-label widget-filter-item-text" for="size-49">49</label>
+                                    </div><span class="fs-xs text-muted">8</span>
+                                </li>
+                                <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="size-50">
+                                        <label class="form-check-label widget-filter-item-text" for="size-50">50</label>
+                                    </div><span class="fs-xs text-muted">6</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Filter by Color-->
+                        <div class="widget">
+                            <h3 class="widget-title">Color <small>(Chức năng đang phát triển)</small></h3>
+                            <div class="d-flex flex-wrap">
+                                <div class="form-check form-option text-center mb-2 mx-1" style="width: 4rem;">
+                                    <input class="form-check-input" type="checkbox" id="color-blue-gray">
+                                    <label class="form-option-label rounded-circle" for="color-blue-gray"><span class="form-option-color rounded-circle" style="background-color: #b3c8db;"></span></label>
+                                    <label class="d-block fs-xs text-muted mt-n1" for="color-blue-gray">Blue-gray</label>
+                                </div>
+                                <div class="form-check form-option text-center mb-2 mx-1" style="width: 4rem;">
+                                    <input class="form-check-input" type="checkbox" id="color-burgundy">
+                                    <label class="form-option-label rounded-circle" for="color-burgundy"><span class="form-option-color rounded-circle" style="background-color: #ca7295;"></span></label>
+                                    <label class="d-block fs-xs text-muted mt-n1" for="color-burgundy">Burgundy</label>
+                                </div>
+                                <div class="form-check form-option text-center mb-2 mx-1" style="width: 4rem;">
+                                    <input class="form-check-input" type="checkbox" id="color-teal">
+                                    <label class="form-option-label rounded-circle" for="color-teal"><span class="form-option-color rounded-circle" style="background-color: #91c2c3;"></span></label>
+                                    <label class="d-block fs-xs text-muted mt-n1" for="color-teal">Teal</label>
+                                </div>
+                                <div class="form-check form-option text-center mb-2 mx-1" style="width: 4rem;">
+                                    <input class="form-check-input" type="checkbox" id="color-brown">
+                                    <label class="form-option-label rounded-circle" for="color-brown"><span class="form-option-color rounded-circle" style="background-color: #9a8480;"></span></label>
+                                    <label class="d-block fs-xs text-muted mt-n1" for="color-brown">Brown</label>
+                                </div>
+                                <div class="form-check form-option text-center mb-2 mx-1" style="width: 4rem;">
+                                    <input class="form-check-input" type="checkbox" id="color-coral-red">
+                                    <label class="form-option-label rounded-circle" for="color-coral-red"><span class="form-option-color rounded-circle" style="background-color: #ff7072;"></span></label>
+                                    <label class="d-block fs-xs text-muted mt-n1" for="color-coral-red">Coral red</label>
+                                </div>
+                                <div class="form-check form-option text-center mb-2 mx-1" style="width: 4rem;">
+                                    <input class="form-check-input" type="checkbox" id="color-navy">
+                                    <label class="form-option-label rounded-circle" for="color-navy"><span class="form-option-color rounded-circle" style="background-color: #696dc8;"></span></label>
+                                    <label class="d-block fs-xs text-muted mt-n1" for="color-navy">Navy</label>
+                                </div>
+                                <div class="form-check form-option text-center mb-2 mx-1" style="width: 4rem;">
+                                    <input class="form-check-input" type="checkbox" id="color-charcoal">
+                                    <label class="form-option-label rounded-circle" for="color-charcoal"><span class="form-option-color rounded-circle" style="background-color: #4e4d4d;"></span></label>
+                                    <label class="d-block fs-xs text-muted mt-n1" for="color-charcoal">Charcoal</label>
+                                </div>
+                                <div class="form-check form-option text-center mb-2 mx-1" style="width: 4rem;">
+                                    <input class="form-check-input" type="checkbox" id="color-sky-blue">
+                                    <label class="form-option-label rounded-circle" for="color-sky-blue"><span class="form-option-color rounded-circle" style="background-color: #8bcdf5;"></span></label>
+                                    <label class="d-block fs-xs text-muted mt-n1" for="color-sky-blue">Sky blue</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Content  -->
+            <section class="col-lg-8">
+                <!-- Toolbar-->
+                <div class="d-flex justify-content-center justify-content-sm-between align-items-center pt-2 pb-4 pb-sm-5">
+                    <div class="d-flex flex-wrap">
+                        <div class="d-flex align-items-center flex-nowrap me-3 me-sm-4 pb-3">
+                            <label class="text-light opacity-75 text-nowrap fs-sm me-2 d-none d-sm-block" for="sorting">Sort by:</label>
+                            <select class="form-select" id="sorting">
+                                <option>A - Z Order</option>
+                                <option>Z - A Order</option>
+                                <option>Low - Hight Price</option>
+                                <option>High - Low Price</option>
+                            </select>
+                            <span class="fs-sm text-light opacity-75 text-nowrap ms-2 d-none d-md-block">of <b>{{ product_count }}</b> products</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner-->
+                <div class="py-sm-2">
+                    <div class="d-sm-flex justify-content-between align-items-center bg-secondary overflow-hidden mb-4 rounded-3">
+                        <div class="py-4 my-2 my-md-0 py-md-5 px-4 ms-md-3 text-center text-sm-start">
+                            <h4 class="fs-lg fw-light mb-2">Converse All Star</h4>
+                            <h3 class="mb-4">Make Your Day Comfortable</h3><a class="btn btn-primary btn-shadow btn-sm" href="#">Shop Now</a>
+                        </div><img class="d-block ms-auto" src="https://cartzilla.createx.studio/img/shop/catalog/banner.jpg" alt="Shop Converse">
+                    </div>
+                </div>
+
+                <!-- Products grid-->
+                <div class="row mx-n2">
+                    {% for product in products %}
+                    <!-- Product-->
+                    <div class="col-md-4 col-sm-6 px-2 mb-4">
+                        <div class="card product-card"><span class="badge bg-danger badge-shadow">Sale</span>
+                            <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button>
+                            <a class="card-img-top d-block overflow-hidden" href="{{ product.get_absolute_url }}"><img src="{{ product.product_images.url }}" alt="Product"></a>
+                            <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">{{ product.category }}</a>
+                                <h3 class="product-title fs-sm"><a href="{{ product.get_absolute_url }}">{{ product.product_name }}</a></h3>
+                                <div class="d-flex justify-content-between">
+                                    <div class="product-price"><span class="text-accent">{{ product.price }}<small> VND</small></span></div>
+
+                                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-half active"></i>
+                                        <i class="star-rating-icon ci-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body card-body-hidden">
+
+                                <div class="text-center"><a class="nav-link-style fs-ms" href="#quick-view" data-bs-toggle="modal"><i class="ci-eye align-middle me-1"></i>Quick view</a></div>
+                            </div>
+                        </div>
+                        <hr class="d-sm-none">
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <hr class="my-3">
+                <!-- Pagination-->
+                <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
+                    {% if products.has_other_pages %}
+                    <ul class="pagination">
+                        {% if products.has_previous %}
+                        <li class="page-item"><a class="page-link text-drack" href="?page={{products.previous_page_number}}"><i class="ci-arrow-left me-2"></i>Prev</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#"><i class="ci-arrow-left me-2"></i>Prev</a></li>
+                        {% endif %}
+                    </ul>
+                    <ul class="pagination">
+                        {% for i in products.paginator.page_range %} {% if products.number == i %}
+                        <li class="page-item active d-none d-sm-block"><a class="page-link" href="#">{{i}}</a></li>
+                        {% else %}
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        {% endif %} {% endfor %}
+                    </ul>
+                    <ul class="pagination">
+                        {% if products.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}" aria-label="Next">Next<i class="ci-arrow-right ms-2"></i></a></li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Next">Next<i class="ci-arrow-right ms-2"></i></a></li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                </nav>
+            </section>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}

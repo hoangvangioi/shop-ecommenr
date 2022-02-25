@@ -1,0 +1,211 @@
+{% extends "base.html" %} {% block content %}
+
+<main class="page-wrapper">
+
+
+
+    <!-- templates/payment.html -->
+    <form action="{{ form.action }}" method="{{ form.method }}">
+        {% csrf_token %} {{ form.as_p }}
+        <p><input type="submit" value="Proceed" /></p>
+    </form>
+
+
+    <!-- Page Title-->
+    <div class="page-title-overlap bg-dark pt-4">
+        <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+            <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+                        <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a></li>
+                        <li class="breadcrumb-item text-nowrap"><a href="shop-grid-ls.html">Shop</a>
+                        </li>
+                        <li class="breadcrumb-item text-nowrap active" aria-current="page">Checkout</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+                <h1 class="h3 text-light mb-0">Checkout</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container pb-5 mb-2 mb-md-4">
+        <div class="row">
+            <section class="col-lg-8">
+                <!-- Steps-->
+                <div class="steps steps-light pt-2 pb-3 mb-5">
+                    <a class="step-item active" href="shop-cart.html">
+                        <div class="step-progress"><span class="step-count">1</span></div>
+                        <div class="step-label"><i class="ci-cart"></i>Cart</div>
+                    </a>
+                    <a class="step-item active" href="checkout-details.html">
+                        <div class="step-progress"><span class="step-count">2</span></div>
+                        <div class="step-label"><i class="ci-user-circle"></i>Details</div>
+                    </a>
+                    <a class="step-item active" href="checkout-shipping.html">
+                        <div class="step-progress"><span class="step-count">3</span></div>
+                        <div class="step-label"><i class="ci-package"></i>Shipping</div>
+                    </a>
+                    <a class="step-item active current" href="checkout-payment.html">
+                        <div class="step-progress"><span class="step-count">4</span></div>
+                        <div class="step-label"><i class="ci-card"></i>Payment</div>
+                    </a>
+                    <a class="step-item" href="checkout-review.html">
+                        <div class="step-progress"><span class="step-count">5</span></div>
+                        <div class="step-label"><i class="ci-check-circle"></i>Review</div>
+                    </a>
+                </div>
+                <div class="card">
+                    <h5 class="card-header">Billing Address</h5>
+                    <div class="card-body">
+                        <p class="card-text mb-0"><b>Full Name: </b>{{order.full_name}}</p>
+                        <p class="card-text mb-0"><b>Address: </b>{{order.full_address}}</p>
+                        <p class="card-text mb-0"><b>City - State: </b>{{order.city}}, {{order.state}}</p>
+                        <p class="card-text mb-0"><b>Country: </b>{{order.country}}</p>
+                        <p class="card-text mb-0"><b>Email: </b>{{order.email}}</p>
+                        <p class="card-text mb-0"><b>Phone Number: </b>{{order.phone}}</p>
+                        {% if order.order_note %}
+                        <b>Order Note: </b> {{order.order_note}} {% endif %}
+
+
+                    </div>
+                </div>
+
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Order summary - 34VB5540K83</h5>
+                        </div>
+                        <div class="modal-body pb-0">
+                            <!-- Item-->
+                            {% for cart_item in cart_items %}
+                            <div class="d-sm-flex justify-content-between mb-4 pb-3 pb-sm-2 border-bottom">
+                                <div class="d-sm-flex text-center text-sm-start">
+                                    <a class="d-inline-block flex-shrink-0 mx-auto" href="{{ cart_item.product.get_url }}" style="width: 10rem;"><img src="{{ cart_item.product.product_images.url }}" alt="{{ cart_item.product.product_name }}"></a>
+                                    <div class="ps-sm-4 pt-2">
+                                        <h3 class="product-title fs-base mb-2"><a href="{{ cart_item.product.get_url }}">{{ cart_item.product.product_name }}</a></h3>
+                                        <div class="fs-sm"><span class="text-muted me-2">{% if cart_item.variations.all %} {% for item in cart_item.variations.all %} {{ item.variation_category | capfirst }} : {{ item.variation_value | capfirst }} <br> {% endfor %} {% endif %}</span></div>
+                                        <div class="fs-lg text-accent pt-2">${{ cart_item.product.price }}.<small>00</small></div>
+                                    </div>
+                                </div>
+                                <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center">
+                                    <div class="text-muted mb-2">Quantity:</div>{{cart_item.quantity}}
+                                </div>
+                                <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center">
+                                    <div class="text-muted mb-2">Subtotal</div>$154.<small>00</small></div>
+                            </div>
+                            {% endfor %}
+                            <div class="modal-footer flex-wrap justify-content-between bg-secondary fs-md">
+                                <div class="px-2 py-1"><span class="text-muted">Subtotal:&nbsp;</span><span>${{total}}.<small>00</small></span></div>
+                                <div class="px-2 py-1"><span class="text-muted">Shipping:&nbsp;</span><span>—<small></small></span></div>
+                                <div class="px-2 py-1"><span class="text-muted">Tax:&nbsp;</span><span>${{tax}}.<small>50</small></span></div>
+                                <div class="px-2 py-1"><span class="text-muted">Total:&nbsp;</span><span class="fs-lg">${{grand_total}}.<small>00</small></span></div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+            </section>
+            <!-- Sidebar-->
+            <aside class="col-lg-4 pt-4 pt-lg-0 ps-xl-5">
+                <div class="bg-white rounded-3 shadow-lg p-4 ms-lg-auto">
+                    <div class="py-2 px-xl-2">
+                        <h2 class="h6 text-center mb-3 pb-1">Grand Total:</h2>
+                        <h3 class="fw-normal text-center my-3">{{grand_total}}<small> VND</small></h3>
+                    </div>
+                    <div id="paypal-button-container">
+                        <!-- PayPal Button Will Load -->
+                    </div>
+                </div>
+                <div class="bg-white rounded-3 shadow-lg p-4 ms-lg-auto">
+                    <div class="py-2 px-xl-2">
+                        <h2 class="h6 text-center mb-3 pb-1">Hoặc bạn có thể liên hệ trực tiếp tới người bán để thanh toán quan liên kết dưới đây</h2>
+                        <h2>
+                            <a href="tel:0384058809">Liên kết</a>
+                        </h2>
+                    </div>
+                </div>
+            </aside>
+            </div>
+        </div>
+</main>
+
+
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var amount = "{{ grand_total }}"
+    var url = "{% url 'payments' %}"
+    var csrftoken = getCookie('csrftoken');
+    var orderID = "{{order.order_number}}"
+    var payment_method = 'PayPal'
+    var redirect_url = "{% url 'order_complete' %}"
+        // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+        style: {
+            color: 'blue',
+            shape: 'pill',
+            label: 'pay',
+            height: 40
+        },
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: amount,
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // Show a success message to the buyer
+                console.log(details);
+                sendData();
+
+                function sendData() {
+                    fetch(url, {
+                            method: "POST",
+                            headers: {
+                                "Content-type": "application/json",
+                                "X-CSRFToken": csrftoken,
+                            },
+                            body: JSON.stringify({
+                                orderID: orderID,
+                                transID: details.id,
+                                payment_method: payment_method,
+                                status: details.status,
+                            }),
+                        })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            window.location.href = redirect_url + '?order_number=' + data.order_number + '&payment_id=' + data.transID;
+                        });
+                }
+            });
+        }
+
+
+    }).render('#paypal-button-container');
+</script>
+
+
+{% endblock content %}
