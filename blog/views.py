@@ -7,6 +7,8 @@ from taggit.models import Tag
 from django.db.models import Count
 from django.db.models import Q
 from django.views import generic
+
+from blog.forms import ContactForm
 from .models import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -19,15 +21,15 @@ def home(request):
     return render(request, 'blog/home.html')
 
 
-# class ContactView(generic.FormView):
-#     template_name = "blog/contact.html"
-#     form_class = ContactForm
-#     success_url = "/contact"
+class ContactView(generic.FormView):
+    template_name = "blog/contact.html"
+    form_class = ContactForm
+    success_url = "/contact"
 
-#     def form_valid(self, form):
-#         form.save()
-#         messages.success(self.request, 'Thanks for contacting us!')
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, 'Thanks for contacting us!')
+        return super().form_valid(form)
 
 
 def about(request):

@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
@@ -52,15 +52,14 @@
         })(window, document, 'script', 'dataLayer', 'GTM-WKV3GT5');
     </script>
 
-        <!-- PayPal Script -->
-<script src="https://www.paypal.com/sdk/js?client-id=ATpvY4Hl8YXhcD__PErnrKSXYWKHJKM1yy1suk2-S6L8bPjKlMVN8CUVGKko6sPN3FA0MZQg0W5erJLU&currency=USD"></script>
+    <!-- PayPal Script -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AVBSMqNtoZ1IUO6lrSe6-vm9AIV1ZKN8CgXu_nINRs80xELRs650mh3yR62groIUg-GCe59Od_EFOG6O&currency=USD"></script>
 
 </head>
 
 <body class="handheld-toolbar-enabled">
     {% include "includes/navbar.html" %} {% block content %} {% endblock content %} {% include "includes/footer.html" %}
-
-
+    
     <!-- Toolbar for handheld devices (Shop)-->
     <div class="handheld-toolbar">
         <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#shop-sidebar"><span class="handheld-toolbar-icon"><i class="ci-filter-alt"></i></span><span class="handheld-toolbar-label">Filters</span></a>
@@ -78,8 +77,6 @@
     <script src="{% static 'js/Drift.min.js' %}"></script>
     <!-- Main theme script-->
     <script src="{% static 'js/theme.min.js' %}"></script>
-
-
 
 </body>
 

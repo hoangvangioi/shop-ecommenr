@@ -1,57 +1,60 @@
-<link rel="stylesheet" href="https://cartzilla.createx.studio/css/theme.min.css">
-<!-- Body-->
+{% extends "base.html" %} {% block title %}Contact{% endblock %} {% block content %}
 
 <main class="page-wrapper">
-	<!-- Page Title (Light)-->
-	<div class="bg-secondary py-4">
-		<div class="container d-lg-flex justify-content-between py-2 py-lg-3">
-		<div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
-			<nav aria-label="breadcrumb">
-			<ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
-				<li class="breadcrumb-item"><a class="text-nowrap" href="{% url 'home' %}"><i class="ci-home"></i>Home</a></li>
-				<li class="breadcrumb-item text-nowrap active" aria-current="page">Contacts</li>
-			</ol>
-			</nav>
-		</div>
-		<div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-			<h1 class="h3 mb-0">Contacts</h1>
-		</div>
-		</div>
-	</div>
+    <!-- Page Title (Light)-->
+    <div class="bg-secondary py-4">
+        <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+            <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
+                        <li class="breadcrumb-item"><a class="text-nowrap" href="{% url 'home' %}"><i class="ci-home"></i>Home</a></li>
+                        <li class="breadcrumb-item text-nowrap active" aria-current="page">Contacts</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+                <h1 class="h3 mb-0">Contacts</h1>
+            </div>
+        </div>
+    </div>
 
-	<!-- Split section: Map + Contact form-->
-	<div class="container-fluid px-0" id="map">
-		<div class="row g-0">
-		<div class="col-lg-6 iframe-full-height-wrap">
-			<iframe class="iframe-full-height" width="600" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53357.14257194912!2d-73.07268695801845!3d40.78017062807504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e8483b8bffed93%3A0x53467ceb834b7397!2s396+Lillian+Blvd%2C+Holbrook%2C+NY+11741%2C+USA!5e0!3m2!1sen!2sua!4v1558703206875!5m2!1sen!2sua"></iframe>
-		</div>
-		<div class="col-lg-6 px-4 px-xl-5 py-5 border-top">
-			<h2 class="h4 mb-4">Drop us a line</h2>
-			<form class="needs-validation mb-3" novalidate>
-			<div class="row g-3">
-				<div class="col-sm-6">
-					<label class="form-label" for="cf-name">Your name:&nbsp;<span class="text-danger">*</span></label>
-					<input class="form-control" type="text" id="cf-name" placeholder="John Doe" required>
-					<div class="invalid-feedback">Please fill in you name!</div>
-				</div>
-				<div class="col-sm-6">
-					<label class="form-label" for="cf-email">Email address:&nbsp;<span class="text-danger">*</span></label>
-					<input class="form-control" type="email" id="cf-email" placeholder="johndoe@email.com" required>
-					<div class="invalid-feedback">Please provide valid email address!</div>
-				</div>
-				<div class="col-12">
-					<label class="form-label" for="cf-subject">Subject:</label>
-					<input class="form-control" type="text" id="cf-subject" placeholder="Provide short title of your request">
-				</div>
-				<div class="col-12">
-					<label class="form-label" for="cf-message">Message:&nbsp;<span class="text-danger">*</span></label>
-					<textarea class="form-control" id="cf-message" rows="6" placeholder="Please describe in detail your request" required></textarea>
-					<div class="invalid-feedback">Please write a message!</div>
-					<button class="btn btn-primary mt-4" type="submit">Send message</button>
-				</div>
-			</div>
-			</form>
-		</div>
-		</div>
-	</div>
+    <!-- Split section: Map + Contact form-->
+    <div class="container-fluid px-0" id="map">
+        <div class="row g-0">
+            <div class="col-lg-6 iframe-full-height-wrap">
+                <iframe class="iframe-full-height" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12617.731258522936!2d105.91717088965265!3d19.912857474022143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31365c5f15778f25%3A0xb39a8423ec0e4e65!2zUGjDuiBM4buZYywgSOG6rXUgTOG7mWMsIFRoYW5oIEhvw6EsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1646059854539!5m2!1svi!2s" width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="col-lg-6 px-4 px-xl-5 py-5 border-top">
+                <h2 class="h4 mb-4">Drop us a line</h2>
+                <p class="fs-sm text-muted">Chúng tôi thường trả lời trong vòng 2 ngày làm việc</p>
+                <form class="needs-validation mb-3" id="contactForm" method="POST" action="{% url 'blog:contact' %}" novalidate>
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label class="form-label" for="cf-name">Your name:&nbsp;<span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" id="cf-name" placeholder="Name" name="name" required>
+                            <div class="invalid-feedback">Please fill in you name!</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="cf-email">Email address:&nbsp;<span class="text-danger">*</span></label>
+                            <input class="form-control" type="email" id="cf-email" placeholder="name@example.com" name="email" required>
+                            <div class="invalid-feedback">Please provide valid email address!</div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="cf-subject">Subject:</label>
+                            <input class="form-control" type="text" id="cf-subject" placeholder="Provide short title of your request" name="subject">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="cf-message">Message:&nbsp;<span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="cf-message" rows="6" placeholder="Please describe in detail your request" name="message" required></textarea>
+                            <div class="invalid-feedback">Please write a message!</div>
+                            <button class="btn btn-primary mt-4" type="submit">Send message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </main>
+
+{% endblock content %}

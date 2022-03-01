@@ -66,8 +66,6 @@
                         <p class="card-text mb-0"><b>Phone Number: </b>{{order.phone}}</p>
                         {% if order.order_note %}
                         <b>Order Note: </b> {{order.order_note}} {% endif %}
-
-
                     </div>
                 </div>
 
@@ -96,10 +94,10 @@
                             </div>
                             {% endfor %}
                             <div class="modal-footer flex-wrap justify-content-between bg-secondary fs-md">
-                                <div class="px-2 py-1"><span class="text-muted">Subtotal:&nbsp;</span><span>${{total}}.<small>00</small></span></div>
+                                <div class="px-2 py-1"><span class="text-muted">Subtotal:&nbsp;</span><span>${{total}}<small></small></span></div>
                                 <div class="px-2 py-1"><span class="text-muted">Shipping:&nbsp;</span><span>—<small></small></span></div>
-                                <div class="px-2 py-1"><span class="text-muted">Tax:&nbsp;</span><span>${{tax}}.<small>50</small></span></div>
-                                <div class="px-2 py-1"><span class="text-muted">Total:&nbsp;</span><span class="fs-lg">${{grand_total}}.<small>00</small></span></div>
+                                <div class="px-2 py-1"><span class="text-muted">Tax:&nbsp;</span><span>${{tax}}<small></small></span></div>
+                                <div class="px-2 py-1"><span class="text-muted">Total:&nbsp;</span><span class="fs-lg">${{ grand_total }}<small></small></span></div>
                             </div>
                             <br>
                         </div>
@@ -110,7 +108,7 @@
                 <div class="bg-white rounded-3 shadow-lg p-4 ms-lg-auto">
                     <div class="py-2 px-xl-2">
                         <h2 class="h6 text-center mb-3 pb-1">Grand Total:</h2>
-                        <h3 class="fw-normal text-center my-3">{{grand_total}}<small> VND</small></h3>
+                        <h3 class="fw-normal text-center my-3">{{ grand_total }}<small> VND</small></h3>
                     </div>
                     <div id="paypal-button-container">
                         <!-- PayPal Button Will Load -->
@@ -119,9 +117,6 @@
                 <div class="bg-white rounded-3 shadow-lg p-4 ms-lg-auto">
                     <div class="py-2 px-xl-2">
                         <h2 class="h6 text-center mb-3 pb-1">Hoặc bạn có thể liên hệ trực tiếp tới người bán để thanh toán quan liên kết dưới đây</h2>
-                        <h2>
-                            <a href="tel:0384058809">Liên kết</a>
-                        </h2>
                     </div>
                 </div>
             </aside>
@@ -203,9 +198,7 @@
             });
         }
 
-
     }).render('#paypal-button-container');
 </script>
-
 
 {% endblock content %}

@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#ch8mk1u#$ns-51sw24oo2n7%on*woka$n)62p_k^mlgrp33x0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["ecommenr-django.herokuapp.com","*","127.0.0.1"]
 
@@ -51,10 +51,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'taggit',
     
-    'cloudinary_storage',
-    'cloudinary',
+    # 'cloudinary_storage',
+    # 'cloudinary',
     
-    'django.contrib.humanize',
+    # 'django.contrib.humanize',
     ]
 
 MIDDLEWARE = [
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    'django.middleware.locale.LocaleMiddleware',
+    # 'django.middleware.locale.LocaleMiddleware',
     
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -139,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'vi'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
@@ -163,11 +163,15 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+# MESSAGE_TAGS = {
+#     messages.DEBUG: 'info',
+#     messages.INFO: 'info',
+#     messages.SUCCESS: 'success',
+#     messages.WARNING: 'warning',
+#     messages.ERROR: 'danger',
+# }
+
 MESSAGE_TAGS = {
-    messages.DEBUG: 'info',
-    messages.INFO: 'info',
-    messages.SUCCESS: 'success',
-    messages.WARNING: 'warning',
     messages.ERROR: 'danger',
 }
 # Default primary key field type
@@ -195,7 +199,8 @@ EMAIL_HOST_USER = "gioitube2k2@gmail.com"
 EMAIL_HOST_PASSWORD = "gbanlrbznyztdwqg"
 EMAIL_PORT = 587
 
-
+# ADMINS = [('Hoàng Giỏi', 'Hoàng Giỏi'), ('Hoàng Giỏi', 'Hoàng Giỏi')]
+# DEFAULT_FROM_EMAIL = 'Hoàng Giỏi'
 
 DJANGORESIZED_DEFAULT_SIZE = [500, 500]
 DJANGORESIZED_DEFAULT_QUALITY = 75
@@ -211,12 +216,12 @@ TAGGIT_CASE_INSENSITIVE = True
 django_heroku.settings(locals())
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hrm0wfjgi',
-    'API_KEY': '174316699256798',
-    'API_SECRET': '6bjvdRT3JiGzSC1vSFRxJJekrEY',
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'hrm0wfjgi',
+#     'API_KEY': '174316699256798',
+#     'API_SECRET': '6bjvdRT3JiGzSC1vSFRxJJekrEY',
+# }
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 CKEDITOR_CONFIGS = {
@@ -273,7 +278,7 @@ CKEDITOR_CONFIGS = {
             'autoembed',
             'embedsemantic',
             'autogrow',
-            # 'devtools',
+            'devtools',
             'widget',
             'lineutils',
             'clipboard',
